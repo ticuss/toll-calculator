@@ -11,7 +11,7 @@ import (
 	"github.com/tolling/types"
 )
 
-const wsEndpoint = "ws://127.0.0.1:3000/ws"
+const wsEndpoint = "ws://127.0.0.1:3001/ws"
 
 var sendInterval = time.Second * 5
 

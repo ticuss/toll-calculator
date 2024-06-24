@@ -19,7 +19,10 @@ func main() {
 	}
 	http.HandleFunc("/ws", recv.handleWS)
 	fmt.Println("works good")
-	http.ListenAndServe(":3000", nil)
+	err = http.ListenAndServe(":3001", nil)
+	if err != nil {
+		fmt.Printf("maybe the port is used %s", err)
+	}
 }
 
 type DataReceiver struct {

@@ -1,4 +1,4 @@
-.PHONY: obu, invoicer
+.PHONY: obu invoicer
 
 obu:
 	@go build -o bin/obu obu/main.go

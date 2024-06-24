@@ -13,7 +13,6 @@ type CalculatorServicer interface {
 
 type CalculatorService struct {
 	prevPoint []float64
-	points    [][]float64
 }
 
 func NewCalculatorService() CalculatorServicer {
