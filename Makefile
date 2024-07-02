@@ -17,3 +17,9 @@ agg:
 	@go build -o bin/agg ./aggregator
 	@./bin/agg
 
+proto: 
+	protoc --go_out=paths=source_relative:. types/ptypes.proto
+
+
+
+
