@@ -1,6 +1,8 @@
 package main
 
 import (
+	"context"
+
 	"github.com/tolling/types"
 )
 
@@ -15,11 +17,11 @@ func NewAggregatorGRPCServer(svc Aggregator) *GRPCSAggregatorerver {
 	}
 }
 
-func (s *GRPCSAggregatorerver) AggregateDistance(req *types.AggregateRequest) error {
+func (s *GRPCSAggregatorerver) Aggregate(ctx context.Context, req *types.AggregateRequest) (*types.None, error) {
 	distance := types.Distance{
 		OBUID: int(req.ObuID),
 		Value: req.Value,
 		Unix:  req.Unix,
 	}
-	return s.svc.AggregateDistance(distance)
+	return &types.None{}, s.svc.AggregateDistance(distance)
 }

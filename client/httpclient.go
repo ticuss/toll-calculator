@@ -9,17 +9,17 @@ import (
 	"github.com/tolling/types"
 )
 
-type Client struct {
+type HttpClient struct {
 	Endpoint string
 }
 
-func NewClient(endpoint string) *Client {
-	return &Client{
+func NewClient(endpoint string) *HttpClient {
+	return &HttpClient{
 		Endpoint: endpoint,
 	}
 }
 
-func (c *Client) AggregateInvoice(distance types.Distance) error {
+func (c *HttpClient) AggregateInvoice(distance types.Distance) error {
 	b, err := json.Marshal(distance)
 	if err != nil {
 		return err
@@ -29,12 +29,15 @@ func (c *Client) AggregateInvoice(distance types.Distance) error {
 	if err != nil {
 		return err
 	}
+
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return err
 	}
+
 	if resp.StatusCode != http.StatusOK {
 		return fmt.Errorf("the service responded with non 200 status code %d", resp.StatusCode)
 	}
+
 	return nil
 }
