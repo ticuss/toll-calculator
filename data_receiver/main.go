@@ -19,7 +19,7 @@ func main() {
 	}
 	http.HandleFunc("/ws", recv.handleWS)
 	fmt.Println("works good")
-	err = http.ListenAndServe(":3002", nil)
+	err = http.ListenAndServe(":30000", nil)
 	if err != nil {
 		fmt.Printf("maybe the port is used %s", err)
 	}
