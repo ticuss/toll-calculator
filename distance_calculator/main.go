@@ -12,7 +12,7 @@ import (
 
 const (
 	kafkaTopic         = "obudata"
-	aggregatorEndpoint = "http://127.0.0.1:3000/aggregate"
+	aggregatorEndpoint = "http://127.0.0.1:3000"
 )
 
 // Tranport (http, grpc, kafka) -> attach business logic to this tranport
