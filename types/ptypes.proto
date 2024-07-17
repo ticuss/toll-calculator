@@ -21,5 +21,4 @@ message AggregateRequest {
     int32 ObuID = 1;
     double Value = 2;
     int64 Unix  = 3;
-
   }

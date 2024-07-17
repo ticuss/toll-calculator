@@ -60,6 +60,7 @@ func makeGRPCTransport(listenAddr string, svc Aggregator) error {
 func handleGetInvoice(svc Aggregator) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		obuIDStr := r.URL.Query().Get("obu")
+		fmt.Println("obuIDStr", obuIDStr)
 		if obuIDStr == "" {
 			writeJSON(w, http.StatusBadRequest, map[string]string{"error": "obuID is required"})
 			return
